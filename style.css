@@ -26,18 +26,29 @@ main {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	background-color: #262626;
 }
 
-div {
+main div {
 	width: 20vw;
 	height: 20vw;
 	background-color: slategrey;
 	border-radius: 20%;
 	transition: background-color 0.25s ease;
+	opacity: 0.8;
+	animation-name: animateField;
+	animation-duration: 4s;
+}
+
+@keyframes animateField {
+	from {border-radius: 100%}
+	to {border-radius: 20%}
+	from {opacity: 0}
+	to {opacity: 0.8}
 }
 
 div:hover {
-	border: 0.7em dotted #9be7ff;
+	border: 0.5em solid #9be7ff;
 }
 
 header {
@@ -89,11 +100,30 @@ input {
 h1 {
 	font-size: 6em;
 	font-weight: bold;
-	animation-name: headanimate;
+	animation-name: animateTitle;
 	animation-duration: 3s;
+	animation: pulse 5s infinite;
 }
 
-@keyframes headanimate {
+@keyframes animateTitle {
 	from {font-size: 0.3em}
 	to {font-size: 6em}
+}
+
+@keyframes pulse {
+	0% {
+		color: white;
+	}
+	25% {
+		color: #14B8CC;
+	}
+	50% {
+		color: #FFE419;
+	}
+	75% {
+		color: #B26D91;
+	}
+	100% {
+		color: white;
+	}
 }

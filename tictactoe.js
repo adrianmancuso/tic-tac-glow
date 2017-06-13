@@ -17,15 +17,15 @@ var chooseStartingPlayer = function (){
 
 var changeColorX = function (event) {
 	if (event.target.style.backgroundColor = 'slategrey') {
-	event.target.style.backgroundColor = '#B2698B';
+	event.target.style.backgroundColor = '#B26D91';
 	event.target.classList.add('glowing');
-	//code to change turn
+	//code to change turn B26D91 B2698B
 }
 }
 
 var changeColorY = function (event) {
-	event.target.style.backgroundColor = '#099AB2';
+	event.target.style.backgroundColor = '#14B8CC';
 	event.target.classList.add('glowing');
 }
 
-board.addEventListener('click', changeColorX);
+board.addEventListener('click', changeColorY);
