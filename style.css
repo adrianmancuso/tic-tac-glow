@@ -1,0 +1,99 @@
+html {	
+	box-sizing: border-box;
+	font-family: 'Amatic SC', cursive;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+button, input {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+
+body {
+	background-color: #262626;
+}
+
+main {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+div {
+	width: 20vw;
+	height: 20vw;
+	background-color: slategrey;
+	border-radius: 20%;
+	transition: background-color 0.25s ease;
+}
+
+div:hover {
+	border: 0.7em dotted #9be7ff;
+}
+
+header {
+	width: 100%;
+	border-bottom: 0.1em solid #9be7ff;
+	padding-bottom: 1em;
+}
+
+h1, h2, h3 {
+	color: white;
+	margin: 0;
+	text-align: center;
+
+}
+
+.glowing {
+	box-shadow: 0px 0px 1em #fff;
+}
+
+.set-up {
+	width: 70%;
+	margin: 3em auto;
+	padding: 1.7em;
+	border: 0.1em solid white;
+	border-radius: 8%;
+	box-shadow: 0px 0px 1em #fff;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: space-between;
+}
+
+button {
+	background-color: slategrey;
+	margin: 0.2em;
+	border-radius: 15%;
+
+}
+
+input {
+	text-align: center;
+	vertical-align: middle;
+	border: 0.03em solid white;
+	width: 20%;
+	color: white;
+	margin: 0.2em;
+}
+
+h1 {
+	font-size: 6em;
+	font-weight: bold;
+	animation-name: headanimate;
+	animation-duration: 3s;
+}
+
+@keyframes headanimate {
+	from {font-size: 0.3em}
+	to {font-size: 6em}
+}
