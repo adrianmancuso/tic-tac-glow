@@ -119,12 +119,12 @@ input {
 h1 {
 	font-size: 6em;
 	font-weight: bold;
-	animation-name: animateTitle;
-	animation-duration: 3s;
-	animation: pulse 8s infinite;
+	animation: pulse 8s infinite, grow 3s;
+	transition-duration: 1s;
+
 }
 
-@keyframes animateTitle {
+@keyframes grow {
 	from {font-size: 0.3em}
 	to {font-size: 6em}
 }
@@ -148,9 +148,11 @@ h1 {
 }
 
 .hide {
+	/*transition: transform 2s ease;*/
+	/*transform: scale(0,0);*/
 	display: none;
 }
 
 .disolve {
-
+	
 }

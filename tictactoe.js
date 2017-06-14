@@ -3,23 +3,29 @@ var startMenu = document.getElementsByTagName('section')[0];
 var inputOne = document.getElementById('nameP1');
 var playButton = document.getElementById('playButton');
 var inputTwo = document.getElementById('nameP2');
-var currentPlayer = "";
 var heading = document.getElementsByTagName('h1')[0];
-var filledBoxes = 0;
-var winStates = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
-var gameOver = false;
+var soundOne = new Audio('sounds/bubble1.mp3');
+var soundTwo = new Audio('sounds/bubble2.mp3');
+
 
 var playerOne = {
 	name: 'player one',
 	color: '#B26D91',
+	sound: soundOne,
 	picks: []
 };
 
 var playerTwo = {
 	name: 'player two',
 	color: '#14B8CC',
+	sound: soundTwo,
 	picks: []
 };
+
+var currentPlayer = "";
+var filledBoxes = 0;
+var winStates = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+var gameOver = false;
 
 //to do - create colour choices for players
 //player set up
@@ -37,15 +43,9 @@ var getProperties = function() {
 	chooseStartingPlayer()
 }
 
-
-
-
 playButton.addEventListener('click', getProperties);
 inputOne.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}})
-
-
-
-
+inputTwo.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}})
 
 var chooseStartingPlayer = function (){
 	var x = Math.random();
@@ -54,25 +54,31 @@ var chooseStartingPlayer = function (){
 	} else {
 		currentPlayer = (playerTwo);
 	}
+		
 	startMenu.classList.add('hide');
 	playButton.classList.add('hide');
 	board.classList.remove('hide');
 	heading.innerText = (currentPlayer.name + "'s turn");
-
 }
 
-var takeTurn = function (event, colorInPlay) {
+var playSound = function(source) {
+	source.play();
+}
+
+var takeTurn = function (event, colorInPlay, sound) {
 	if (event.target.tagName === 'DIV' && event.target.style.backgroundColor === '') {
 		event.target.style.backgroundColor = colorInPlay;
+		playSound(sound);
 		event.target.classList.add('glowing');
 		currentPlayer.picks.push(Number(event.target.id));
 		filledBoxes ++;
-		checkWin();
-		checkEnd;
+		endGameCheck();
+		
 		if (gameOver) {
 			board.classList.add('hide');
 			return
 		}
+		
 		if (currentPlayer === playerOne) {
 			currentPlayer = playerTwo;
 		} else {
@@ -82,7 +88,7 @@ var takeTurn = function (event, colorInPlay) {
 	}
 }
 
-var checkWin = function() {
+var endGameCheck = function() {
 	if (currentPlayer.picks.length > 2) {
 		for (var i = 0; i < winStates.length; i++){
 			var matchCount = 0;
@@ -92,26 +98,17 @@ var checkWin = function() {
 					if (matchCount === 3) {
 						heading.innerText = (currentPlayer.name + " wins!");
 						gameOver = true;
+						return
 					}
 				}
 			}
 		}
 	}
-}
 
-var checkEnd = function () {
 	if (filledBoxes === 9) {
 		heading.innerText = "Draw. Game Over";
 		gameOver = true;
 	}
 }
 
-
-board.addEventListener('click', function(){takeTurn(event, currentPlayer.color)});
-
-// win states as  array numbers:
-// 012, 345, 678, 036, 147, 258, 048, 246
-// lowest number + 2 check, if exists + 2 check
-
-// credit https://johnresig.com/blog/fast-javascript-maxmin/ for min prototype method
-
+board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound)});
