@@ -102,7 +102,7 @@ h1 {
 	font-weight: bold;
 	animation-name: animateTitle;
 	animation-duration: 3s;
-	animation: pulse 5s infinite;
+	animation: pulse 8s infinite;
 }
 
 @keyframes animateTitle {
