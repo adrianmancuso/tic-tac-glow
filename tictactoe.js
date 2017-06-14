@@ -57,6 +57,7 @@ var chooseStartingPlayer = function (){
 		
 	startMenu.classList.add('hide');
 	playButton.classList.add('hide');
+	document.getElementsByTagName('h3')[0].classList.add('hide');
 	board.classList.remove('hide');
 	heading.innerText = (currentPlayer.name + "'s turn");
 }
@@ -76,6 +77,7 @@ var takeTurn = function (event, colorInPlay, sound) {
 		
 		if (gameOver) {
 			board.classList.add('hide');
+			heading.classList.add('end');
 			return
 		}
 		

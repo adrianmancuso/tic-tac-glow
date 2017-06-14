@@ -153,6 +153,12 @@ h1 {
 	display: none;
 }
 
-.disolve {
-	
+.end {
+	font-size: 12em;
+	animation: huge 3s;
+}
+
+@keyframes huge {
+	from {font-size: 6em}
+	to {font-size: 12em}
 }
