@@ -1,3 +1,4 @@
+"use strict";
 var board = document.getElementsByTagName('main')[0];
 var allTiles = document.querySelectorAll('.tile');
 var startMenu = document.getElementsByTagName('section')[0];
@@ -55,12 +56,12 @@ var getProperties = function() {
 	}
 	playerOne.scoreBoard.style.color = playerOne.color;
 	playerTwo.scoreBoard.style.color = playerTwo.color;
-	chooseStartingPlayer()
-}
+	chooseStartingPlayer();
+};
 
 playButton.addEventListener('click', getProperties);
-inputOne.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}})
-inputTwo.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}})
+inputOne.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}});
+inputTwo.addEventListener('keydown', function(event){ if (event.code === "Enter"){getProperties();}});
 
 var chooseStartingPlayer = function (){
 	var x = Math.random();
@@ -75,7 +76,7 @@ var chooseStartingPlayer = function (){
 	document.getElementsByTagName('h3')[0].classList.add('hide');
 	board.classList.remove('hide');
 	heading.innerText = (currentPlayer.name + "'s turn");
-}
+};
 
 var restartBoard = function () {
 	playerOne.picks = [];
@@ -92,11 +93,11 @@ var restartBoard = function () {
 	playAgain.classList.add('hide');
 	newPlayers.classList.add('hide');
 	chooseStartingPlayer();
-}
+};
 
 var playSound = function(source) {
 	source.play();
-}
+};
 
 var takeTurn = function (event, colorInPlay, sound) {
 	if (event.target.tagName === 'DIV' && event.target.style.backgroundColor === '') {
@@ -112,7 +113,7 @@ var takeTurn = function (event, colorInPlay, sound) {
 			heading.classList.add('end');
 			playAgain.classList.remove('hide');
 			newPlayers.classList.remove('hide');
-			return
+			return;
 		}
 		
 		if (currentPlayer === playerOne) {
@@ -122,7 +123,7 @@ var takeTurn = function (event, colorInPlay, sound) {
 		}
 		heading.innerText = (currentPlayer.name + "'s turn");
 	}
-}
+};
 
 var endGameCheck = function() {
 	if (currentPlayer.picks.length > 2) {
@@ -137,7 +138,7 @@ var endGameCheck = function() {
 						currentPlayer.winTally ++;
 						currentPlayer.scoreBoard.innerText = (currentPlayer.name + ": " + currentPlayer.winTally);
 						gameOver = true;
-						return
+						return;
 					}
 				}
 			}
@@ -148,19 +149,19 @@ var endGameCheck = function() {
 		heading.innerText = "Draw :(";
 		gameOver = true;
 	}
-}
+};
 
 var disableColor = function (event, targetMenu) {
 		var x = event.target.options.selectedIndex;
 		targetMenu.options[x].disabled = true;
-}
+};
 
 var reload = function() {
 	location.reload();
-}
+};
 
-colorOne.addEventListener('click', function(event){disableColor(event, colorTwo)});
-colorTwo.addEventListener('click', function(event){disableColor(event, colorOne)});
-board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound)});
+colorOne.addEventListener('click', function(event){disableColor(event, colorTwo);});
+colorTwo.addEventListener('click', function(event){disableColor(event, colorOne);});
+board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound);});
 playAgain.addEventListener('click', restartBoard);
 newPlayers.addEventListener('click', reload);
