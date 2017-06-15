@@ -1,9 +1,12 @@
 var board = document.getElementsByTagName('main')[0];
+var allTiles = document.querySelectorAll('.tile');
 var startMenu = document.getElementsByTagName('section')[0];
 var inputOne = document.getElementById('nameP1');
 var playButton = document.getElementById('playButton');
 var inputTwo = document.getElementById('nameP2');
 var heading = document.getElementsByTagName('h1')[0];
+var playAgain = document.getElementsByClassName('newGame')[0];
+var newPlayers = document.getElementsByClassName('newGame')[1];
 var soundOne = new Audio('sounds/bubble1.mp3');
 var soundTwo = new Audio('sounds/bubble2.mp3');
 
@@ -12,14 +15,16 @@ var playerOne = {
 	name: 'player one',
 	color: '#B26D91',
 	sound: soundOne,
-	picks: []
+	picks: [],
+	winTally: 0
 };
 
 var playerTwo = {
 	name: 'player two',
 	color: '#14B8CC',
 	sound: soundTwo,
-	picks: []
+	picks: [],
+	winTally: 0
 };
 
 var currentPlayer = "";
@@ -62,6 +67,23 @@ var chooseStartingPlayer = function (){
 	heading.innerText = (currentPlayer.name + "'s turn");
 }
 
+var restartBoard = function () {
+	playerOne.picks = [];
+	playerTwo.picks = [];
+	gameOver = false;
+	filledBoxes = 0;
+
+	allTiles.forEach(function(element){
+		element.classList.remove('glowing');
+		element.style.backgroundColor = "";
+	});
+
+	heading.classList.remove('end');
+	playAgain.classList.add('hide');
+	newPlayers.classList.add('hide');
+	chooseStartingPlayer();
+}
+
 var playSound = function(source) {
 	source.play();
 }
@@ -78,6 +100,8 @@ var takeTurn = function (event, colorInPlay, sound) {
 		if (gameOver) {
 			board.classList.add('hide');
 			heading.classList.add('end');
+			playAgain.classList.remove('hide');
+			newPlayers.classList.remove('hide');
 			return
 		}
 		
@@ -114,3 +138,4 @@ var endGameCheck = function() {
 }
 
 board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound)});
+playAgain.addEventListener('click', restartBoard);
