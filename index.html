@@ -13,7 +13,21 @@
 	</header>
 	<section class="set-up">
 		<h2>Player 1, choose a name and color:</h2><input type="text" placeholder="name" id="nameP1"> 
-		<h2>Player 2, choose a name and color:</h2><input type="text" placeholder="name" id="nameP2"> 
+		<select name="color" id="colorOne">
+			<option value="white">white</option>
+			<option value="#B26D91">pink</option>
+			<option value="#14B8CC">blue</option>
+			<option value="#FFE419">yellow</option>
+			<option value="#14CC84">green</option>
+		</select>
+		<h2>Player 2, choose a name and color:</h2><input type="text" placeholder="name" id="nameP2">
+		<select name="color" id="colorOne">
+			<option value="white">white</option>
+			<option value="#B26D91">pink</option>
+			<option value="#14B8CC">blue</option>
+			<option value="#FFE419">yellow</option>
+			<option value="#14CC84">green</option>
+		</select>
 	</section>
 	<section class="buttonSection">
 		<button id="playButton">OK!</button>
@@ -31,9 +45,9 @@
 			<div class="tile" id="7"></div>
 			<div class="tile" id="8"></div>
 	</main>
-	<footer >
-		<h2>score 1</h2>
-		<h2>score 2</h2>
+	<footer>
+		<h2 class="tally"></h2>
+		<h2 class="tally"></h2>
 	</footer>
 	<script src="tictactoe.js"></script>
 </body>

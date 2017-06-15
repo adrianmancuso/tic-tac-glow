@@ -9,6 +9,9 @@ var playAgain = document.getElementsByClassName('newGame')[0];
 var newPlayers = document.getElementsByClassName('newGame')[1];
 var soundOne = new Audio('sounds/bubble1.mp3');
 var soundTwo = new Audio('sounds/bubble2.mp3');
+var tally = document.querySelectorAll('.tally');
+var colorOne = document.getElementsByTagName('select')[0];
+var colorTwo = document.getElementsByTagName('select')[1];
 
 
 var playerOne = {
@@ -16,7 +19,8 @@ var playerOne = {
 	color: '#B26D91',
 	sound: soundOne,
 	picks: [],
-	winTally: 0
+	winTally: 0,
+	scoreBoard: tally[0]
 };
 
 var playerTwo = {
@@ -24,7 +28,8 @@ var playerTwo = {
 	color: '#14B8CC',
 	sound: soundTwo,
 	picks: [],
-	winTally: 0
+	winTally: 0,
+	scoreBoard: tally[1]
 };
 
 var currentPlayer = "";
@@ -32,19 +37,24 @@ var filledBoxes = 0;
 var winStates = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
 var gameOver = false;
 
-//to do - create colour choices for players
-//player set up
 var getProperties = function() {
 	playerOne.name = inputOne.value;
+	playerOne.color = colorOne.options[colorOne.selectedIndex].value;
 	inputOne.value = "";
 	if (playerOne.name === ""){
 		playerOne.name = "Player One";
 	}
 	playerTwo.name = inputTwo.value;
+	playerTwo.color = colorTwo.options[colorTwo.selectedIndex].value;
+	if (playerOne.color === playerTwo.color) {
+		playerTwo.color = "#14B8CC";
+	}
 	inputTwo.value = "";
 	if (playerTwo.name === ""){
 		playerTwo.name = "Player Two";
 	}
+	playerOne.scoreBoard.style.color = playerOne.color;
+	playerTwo.scoreBoard.style.color = playerTwo.color;
 	chooseStartingPlayer()
 }
 
@@ -122,7 +132,10 @@ var endGameCheck = function() {
 				if (winStates[i].includes(currentPlayer.picks[j])) {
 					matchCount++;
 					if (matchCount === 3) {
+						heading.style.color = currentPlayer.color;
 						heading.innerText = (currentPlayer.name + " wins!");
+						currentPlayer.winTally ++;
+						currentPlayer.scoreBoard.innerText = (currentPlayer.name + ": " + currentPlayer.winTally);
 						gameOver = true;
 						return
 					}
@@ -132,10 +145,22 @@ var endGameCheck = function() {
 	}
 
 	if (filledBoxes === 9) {
-		heading.innerText = "Draw. Game Over";
+		heading.innerText = "Draw :(";
 		gameOver = true;
 	}
 }
 
+var disableColor = function (event, targetMenu) {
+		var x = event.target.options.selectedIndex;
+		targetMenu.options[x].disabled = true;
+}
+
+var reload = function() {
+	location.reload();
+}
+
+colorOne.addEventListener('click', function(event){disableColor(event, colorTwo)});
+colorTwo.addEventListener('click', function(event){disableColor(event, colorOne)});
 board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound)});
 playAgain.addEventListener('click', restartBoard);
+newPlayers.addEventListener('click', reload);

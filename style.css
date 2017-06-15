@@ -6,7 +6,7 @@ html {
 	box-sizing: inherit;
 }
 
-button, input {
+button, input, select, option {
     border:none;
     background-image:none;
     background-color:transparent;
@@ -40,7 +40,7 @@ main div {
 	transition: background-color 0.25s ease;
 	opacity: 0.8;
 	animation-name: animateField;
-	animation-duration: 4s;
+	animation-duration: 2s;
 
 }
 
@@ -50,6 +50,17 @@ main div {
 	from {opacity: 0}
 	to {opacity: 0.8}
 }
+
+select {
+	width: 40%;
+	background-color: white;
+	display: inline-block;
+	border-radius: 8%;
+	font-family: inherit;
+	font-size: 3em;
+	padding: 0.3em;
+}
+
 
 div:hover {
 	border: 0.5em solid #9be7ff;
@@ -68,9 +79,14 @@ footer {
 	display: flex;
 }
 
-footer h2:last-child {
-	margin-left: 80%;
+footer h2 {
+	white-space: nowrap;
+}
 
+footer h2:last-child {
+	margin-right: 0.4em;
+	position: absolute;
+	right: 0;
 }
 
 h1, h2, h3 {
@@ -122,7 +138,6 @@ button {
 }
 
 button:hover {
-	/*border: 0.04em solid #B26D91;*/
 	box-shadow: 0px 0px 0.6em #B26D91;
 	opacity: 1;
 }
