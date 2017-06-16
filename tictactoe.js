@@ -6,21 +6,31 @@ var inputOne = document.getElementById('nameP1');
 var playButton = document.getElementById('playButton');
 var inputTwo = document.getElementById('nameP2');
 var heading = document.getElementsByTagName('h1')[0];
-var playAgain = document.getElementsByClassName('newGame')[0];
-var newPlayers = document.getElementsByClassName('newGame')[1];
+var playAgain = document.getElementsByClassName('inline')[1];
+var newPlayers = document.getElementsByClassName('inline')[2];
 var soundOne = new Audio('sounds/bubble1.mp3');
 var soundTwo = new Audio('sounds/bubble2.mp3');
 var tally = document.querySelectorAll('.tally');
 var colorOne = document.getElementsByTagName('select')[0];
 var colorTwo = document.getElementsByTagName('select')[1];
+var resumeButton = document.getElementById('resumeGame');
+
+
+var currentPlayer = "";
+var filledBoxes = 0;
+var winStates = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+var gameOver = false;
 
 var checkGameProgress = function (){
 	if (localStorage.gameInProgress == 'true') {
-		console.log('game is in progress');
+		resumeButton.classList.remove('hide');
+		playButton.classList.add('inline');
 	} else {
 		console.log('the game is finished');
 	}
 };
+
+checkGameProgress();
 
 var intialGameState = function () {
 	localStorage.setItem('playerOneName', playerOne.name);
@@ -52,10 +62,7 @@ var playerTwo = {
 	scoreBoard: tally[1]
 };
 
-var currentPlayer = "";
-var filledBoxes = 0;
-var winStates = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
-var gameOver = false;
+
 
 var getProperties = function() {
 	playerOne.name = inputOne.value;
@@ -81,6 +88,7 @@ var getProperties = function() {
 var initializeBoard = function() {
 	startMenu.classList.add('hide');
 	playButton.classList.add('hide');
+	resumeButton.classList.add('hide');
 	document.getElementsByTagName('h3')[0].classList.add('hide');
 	board.classList.remove('hide');
 	localStorage.setItem('gameInProgress', 'true');
@@ -89,7 +97,9 @@ var initializeBoard = function() {
 }
 
 var resumeBoard = function() {
-	currentPlayer = localStorage.currentPlayer;
+	resumeButton.classList.add('hide');
+	restartBoard();
+	currentPlayer = playerOne;
 
 	playerOne.name = localStorage.playerOneName;
 	playerOne.color = localStorage.playerOneColor;
@@ -98,7 +108,7 @@ var resumeBoard = function() {
 	for (var i = 0; i <playerOne.boardPositions.length; i ++){
 		var boardPosition = playerOne.boardPositions[i];
 		allTiles[boardPosition].style.backgroundColor = playerOne.color;
-		allTiles[boardPosition].classList.add('glowing]');
+		allTiles[boardPosition].classList.add('glowing');
 	};
 
 	playerTwo.name = localStorage.playerTwoName;
@@ -107,9 +117,10 @@ var resumeBoard = function() {
 
 	for (var i = 0; i <playerTwo.boardPositions.length; i ++){
 		var boardPosition = playerTwo.boardPositions[i];
-		allTiles[boardPosition].classList.add('glowing]');
+		allTiles[boardPosition].classList.add('glowing');
 		allTiles[boardPosition].style.backgroundColor = playerTwo.color;
 	};
+	filledBoxes = Number(localStorage.filledBoxes);
 }
 
 
@@ -157,6 +168,7 @@ var takeTurn = function (event, colorInPlay, sound) {
 			localStorage.setItem('playerTwoBoard', playerTwo.boardPositions);
 		}
 		filledBoxes ++;
+		localStorage.setItem('filledBoxes', filledBoxes);
 		endGameCheck();
 		
 		if (gameOver) {
@@ -183,7 +195,7 @@ var endGameCheck = function() {
 		for (var i = 0; i < winStates.length; i++){
 			var matchCount = 0;
 			for (var j = 0; j < currentPlayer.boardPositions.length; j++) {
-				if (winStates[i].includes(currentPlayer.boardPositions[j])) {
+				if (winStates[i].includes(Number(currentPlayer.boardPositions[j]))) {
 					matchCount++;
 					if (matchCount === 3) {
 						heading.style.color = currentPlayer.color;
@@ -225,4 +237,5 @@ colorOne.addEventListener('click', function(event){disableColor(event, colorTwo)
 colorTwo.addEventListener('click', function(event){disableColor(event, colorOne);});
 board.addEventListener('click', function(event){takeTurn(event, currentPlayer.color, currentPlayer.sound);});
 playAgain.addEventListener('click', restartBoard);
+resumeButton.addEventListener('click', resumeBoard);
 newPlayers.addEventListener('click', reload);
