@@ -1,4 +1,6 @@
 # tic-tac-glow
+A small, mobile responsive implementation of tic-tac-toe using vanilla HTML, CSS and Javascript. Bubble sounds sourced from soundbible.com and are available to use under the Attribution 3.0 license.
+
 
 ## things to add:
 
@@ -13,18 +15,18 @@
 
  ~~disable alt user selection~~
 
-### mid priority
-~~win tally~~
-
-game rounds
 
 ### low priority
 make win / game over screen more eventful
 
-## accidental features
+game rounds
+
+## 'accidental' features
 ~~a draw results in the last player being awarded a point~~
 
-players can change their colors multiple times, locking
+cruel players can change their colors multiple times, locking
 out other player from choosing a color.
+
+if one player highlights 'blue' using keys instead of clicking and second player selects 'blue' then both players will end up being represented as blue
 
 ~~players can both choose white~~

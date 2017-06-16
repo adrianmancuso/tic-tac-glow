@@ -37,7 +37,7 @@ main div {
 	max-width: 230px;
 	background-color: slategrey;
 	border-radius: 20%;
-	transition: background-color 0.25s ease;
+	transition: background-color 0.15s ease;
 	opacity: 0.8;
 	animation-name: animateField;
 	animation-duration: 2s;
