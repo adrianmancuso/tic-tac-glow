@@ -1,20 +1,20 @@
 
-#Tic-Tac-Glow
+# Tic-Tac-Glow
 A small, mobile responsive implementation of tic-tac-toe using vanilla HTML, CSS and Javascript. Users can specify their name and colour-counter choice or revert to default choices. A running tally is kept after each game. 
 
 For particularly tense and invested matches a resume function is available which saves the board and score state using the user's local storage. 
 
-##Environments
+## Environments
 Tic-Tac-Glow was developed using vanilla
 
 Bubble sounds sourced from soundbible.com and are available to use under the Attribution 3.0 license.
 
-##Installation
+## Installation
 Feel free to clone the repo in order to edit the game or to make your own version.
 
 Alternatively, it is <a href="https://adrianmancusp.github.io/tic-tac-glow/">hosted on GitHub</a>a>.
 
-##Discussion
+## Discussion
 TTG is my most complete purely front-end project to date and my first attempt at mobile-responsiveness. I began the project with the mindset of keeping the design simple and my code readable and uncluttered. 
 
 In particular I wanted to avoid adding redundant lines of CSS and jscript - I wanted the design and functionality of the game to be readable in the code. 
@@ -47,7 +47,7 @@ if one player highlights 'blue' using keys instead of clicking and second player
 
 ~~players can both choose white~~
 
-##Licence
+## Licence
 
 It's tic-tac toe! 
 
