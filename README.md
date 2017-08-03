@@ -12,7 +12,7 @@ Bubble sounds sourced from soundbible.com and are available to use under the Att
 ## Installation
 Feel free to clone the repo in order to edit the game or to make your own version.
 
-Alternatively, it is <a href="https://adrianmancusp.github.io/tic-tac-glow/">hosted on GitHub</a>.
+Alternatively, it is <a href="https://adrianmancuso.github.io/tic-tac-glow/">hosted on GitHub</a>.
 
 ## Discussion
 TTG is my most complete purely front-end project to date and my first attempt at mobile-responsiveness. I began the project with the mindset of keeping the design simple and my code readable and uncluttered. 

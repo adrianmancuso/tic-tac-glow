@@ -1,9 +1,9 @@
-html {	
-	box-sizing: border-box;
-	font-family: 'Amatic SC', cursive;
+html {  
+  box-sizing: border-box;
+  font-family: 'Amatic SC', cursive;
 }
 *, *:before, *:after {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 button, input, select, option {
@@ -17,189 +17,189 @@ button, input, select, option {
 
 
 body {
-	background-color: #262626;
+  background-color: #262626;
 }
 
 main {
-	width: 60vw;
-	height: 60vh;
-	margin: 1.5em auto;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	background-color: #262626;
+  width: 60vw;
+  height: 60vh;
+  margin: 1.5em auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #262626;
 }
 
 main div {
-	width: 20vw;
-	height: 20vw;
-	max-height: 230px;
-	max-width: 230px;
-	background-color: slategrey;
-	border-radius: 20%;
-	transition: background-color 0.15s ease;
-	opacity: 0.8;
-	animation-name: animateField;
-	animation-duration: 2s;
+  width: 20vw;
+  height: 20vw;
+  max-height: 230px;
+  max-width: 230px;
+  background-color: slategrey;
+  border-radius: 20%;
+  transition: background-color 0.15s ease;
+  opacity: 0.8;
+  animation-name: animateField;
+  animation-duration: 2s;
 
 }
 
 @keyframes animateField {
-	from {border-radius: 100%}
-	to {border-radius: 20%}
-	from {opacity: 0}
-	to {opacity: 0.8}
+  from {border-radius: 100%}
+  to {border-radius: 20%}
+  from {opacity: 0}
+  to {opacity: 0.8}
 }
 
 select {
-	width: 40%;
-	background-color: white;
-	display: inline-block;
-	border-radius: 8%;
-	font-family: inherit;
-	font-size: 3em;
-	padding: 0.3em;
+  width: 40%;
+  background-color: white;
+  display: inline-block;
+  border-radius: 8%;
+  font-family: inherit;
+  font-size: 3em;
+  padding: 0.3em;
 }
 
 
 div:hover {
-	border: 0.5em solid #9be7ff;
+  border: 0.5em solid #9be7ff;
 }
 
 header {
-	width: 100%;
-	border-bottom: 0.1em solid #9be7ff;
-	padding-bottom: 1em;
+  width: 100%;
+  border-bottom: 0.1em solid #9be7ff;
+  padding-bottom: 1em;
 }
 
 footer {
-	width: 100%;
-	border-top: 0.1em solid #9be7ff;
-	padding-top: 1em;
-	display: flex;
+  width: 100%;
+  border-top: 0.1em solid #9be7ff;
+  padding-top: 1em;
+  display: flex;
 }
 
 footer h2 {
-	white-space: nowrap;
+  white-space: nowrap;
 }
 
 footer h2:last-child {
-	margin-right: 0.4em;
-	position: absolute;
-	right: 0;
+  margin-right: 0.4em;
+  position: absolute;
+  right: 0;
 }
 
 h1, h2, h3 {
-	color: white;
-	margin: 0;
-	text-align: center;
+  color: white;
+  margin: 0;
+  text-align: center;
 
 }
 
 h2 {
-	font-size: 3.1em;
+  font-size: 3.1em;
 }
 
 .glowing {
-	box-shadow: 0px 0px 1em #fff;
+  box-shadow: 0px 0px 1em #fff;
 }
 
 .set-up {
-	width: 70%;
-	margin: 3em auto;
-	padding: 1.7em;
-	border: 0.1em solid white;
-	border-radius: 8%;
-	box-shadow: 0px 0px 1em #fff;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	align-items: space-between;
+  width: 70%;
+  margin: 3em auto;
+  padding: 1.7em;
+  border: 0.1em solid white;
+  border-radius: 8%;
+  box-shadow: 0px 0px 1em #fff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: space-between;
 }
 
 .buttonSection {
-	width: 50%;
-	position: relative;
-	left: 25%;
+  width: 50%;
+  position: relative;
+  left: 25%;
 }
 
 button {
-	background-color: slategrey;
-	border: 0.1em solid white;
-	border-radius: 15%;
-	box-shadow: 0px 0px 0.6em #fff;
-	margin: 2em auto;
-	width: 23vw;
-	height: 15vw;
-	display: block;
-	font-size: 3.5em;
-	font-family: inherit;
-	opacity: 0.9;
-	vertical-align: top;
+  background-color: slategrey;
+  border: 0.1em solid white;
+  border-radius: 15%;
+  box-shadow: 0px 0px 0.6em #fff;
+  margin: 2em auto;
+  width: 23vw;
+  height: 15vw;
+  display: block;
+  font-size: 3.5em;
+  font-family: inherit;
+  opacity: 0.9;
+  vertical-align: top;
 }
 
 button:hover {
-	box-shadow: 0px 0px 0.6em #B26D91;
-	opacity: 1;
+  box-shadow: 0px 0px 0.6em #B26D91;
+  opacity: 1;
 }
 
 .inline {
-	display: inline-block;
+  display: inline-block;
 }
 
 input {
-	text-align: center;
-	vertical-align: middle;
-	border: 0.03em solid white;
-	width: 50%;
-	color: white;
-	margin: 0.2em;
-	height: 3em;
-	font-size: 2em;
-	font-family: inherit;
+  text-align: center;
+  vertical-align: middle;
+  border: 0.03em solid white;
+  width: 50%;
+  color: white;
+  margin: 0.2em;
+  height: 3em;
+  font-size: 2em;
+  font-family: inherit;
 }
 
 h1 {
-	font-size: 6em;
-	font-weight: bold;
-	animation: pulse 8s infinite, grow 3s;
-	transition-duration: 1s;
+  font-size: 6em;
+  font-weight: bold;
+  animation: pulse 8s infinite, grow 3s;
+  transition-duration: 1s;
 
 }
 
 @keyframes grow {
-	from {font-size: 0.3em}
-	to {font-size: 6em}
+  from {font-size: 0.3em}
+  to {font-size: 6em}
 }
 
 @keyframes pulse {
-	0% {
-		color: white;
-	}
-	25% {
-		color: #14B8CC;
-	}
-	50% {
-		color: #FFE419;
-	}
-	75% {
-		color: #B26D91;
-	}
-	100% {
-		color: white;
-	}
+  0% {
+    color: white;
+  }
+  25% {
+    color: #14B8CC;
+  }
+  50% {
+    color: #FFE419;
+  }
+  75% {
+    color: #B26D91;
+  }
+  100% {
+    color: white;
+  }
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
 .end {
-	font-size: 12em;
-	animation: huge 3s;
+  font-size: 12em;
+  animation: huge 3s;
 }
 
 @keyframes huge {
-	from {font-size: 6em}
-	to {font-size: 12em}
+  from {font-size: 6em}
+  to {font-size: 12em}
 }
