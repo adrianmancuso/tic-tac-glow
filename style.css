@@ -40,7 +40,7 @@ main div {
   transition: background-color 0.15s ease;
   opacity: 0.8;
   animation-name: animateField;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
 }
 
@@ -74,7 +74,6 @@ header {
 
 footer {
   width: 100%;
-  border-top: 0.1em solid #9be7ff;
   padding-top: 1em;
   display: flex;
 }
@@ -160,16 +159,16 @@ input {
 }
 
 h1 {
-  font-size: 6em;
+  font-size: 5em;
   font-weight: bold;
-  animation: pulse 8s infinite, grow 3s;
+  animation: pulse 8s infinite, grow 2s;
   transition-duration: 1s;
 
 }
 
 @keyframes grow {
   from {font-size: 0.3em}
-  to {font-size: 6em}
+  to {font-size: 5em}
 }
 
 @keyframes pulse {
@@ -195,11 +194,11 @@ h1 {
 }
 
 .end {
-  font-size: 12em;
-  animation: huge 3s;
+  font-size: 10em;
+  animation: huge 2s;
 }
 
 @keyframes huge {
   from {font-size: 6em}
-  to {font-size: 12em}
+  to {font-size: 10em}
 }
