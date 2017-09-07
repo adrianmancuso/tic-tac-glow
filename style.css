@@ -21,7 +21,7 @@ body {
 }
 
 main {
-  width: 60vw;
+  width: 60vh;
   height: 60vh;
   margin: 1.5em auto;
   display: flex;
@@ -31,10 +31,8 @@ main {
 }
 
 main div {
-  width: 20vw;
-  height: 20vw;
-  max-height: 230px;
-  max-width: 230px;
+  width: 33%;
+  height: width;
   background-color: slategrey;
   border-radius: 20%;
   transition: background-color 0.15s ease;
@@ -59,11 +57,12 @@ select {
   font-family: inherit;
   font-size: 3em;
   padding: 0.3em;
+  vertical-align: middle;
 }
 
 
 div:hover {
-  border: 0.5em solid #9be7ff;
+  border: 0.3em solid #9be7ff;
 }
 
 header {
@@ -97,6 +96,7 @@ h1, h2, h3 {
 
 h2 {
   font-size: 3.1em;
+  display: block;
 }
 
 .glowing {
@@ -108,18 +108,15 @@ h2 {
   margin: 3em auto;
   padding: 1.7em;
   border: 0.1em solid white;
-  border-radius: 8%;
+  border-radius: 4%;
   box-shadow: 0px 0px 1em #fff;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: space-between;
 }
 
 .buttonSection {
   width: 50%;
   position: relative;
-  left: 25%;
+  margin: 0 auto;
+  display: flex;
 }
 
 button {
@@ -128,9 +125,9 @@ button {
   border-radius: 15%;
   box-shadow: 0px 0px 0.6em #fff;
   margin: 2em auto;
-  width: 23vw;
-  height: 15vw;
-  display: block;
+  width: 15vw;
+  height: 12vw;
+  justify-content: space-between; 
   font-size: 3.5em;
   font-family: inherit;
   opacity: 0.9;
@@ -156,6 +153,7 @@ input {
   height: 3em;
   font-size: 2em;
   font-family: inherit;
+  display: inline-block;
 }
 
 h1 {
